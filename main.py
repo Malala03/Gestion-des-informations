@@ -7,10 +7,6 @@ from controllers.signup_controller import SignupController
 from controllers.home_controller import HomeController
 
 def main(page: ft.Page):
-    page.title = "Application de Gestion"
-    page.window_width = 400
-    page.window_height = 600
-
     login_controller = LoginController(page)
     signup_controller = SignupController(page)
     home_controller = HomeController(page)
