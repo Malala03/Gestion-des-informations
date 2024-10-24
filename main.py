@@ -1,19 +1,19 @@
 import flet as ft
 from views.login_view import LoginView
 from views.signup_view import SignupView
-from views.home_view import HomeView
+from views.dashboard_view import DashboardView
 from controllers.login_controller import LoginController
 from controllers.signup_controller import SignupController
-from controllers.home_controller import HomeController
+from controllers.dashboard_controller import DashboardController
 
 def main(page: ft.Page):
     login_controller = LoginController(page)
     signup_controller = SignupController(page)
-    home_controller = HomeController(page)
+    dashboard_controller = DashboardController(page)  # Correction de l'orthographe ici
 
     # Navigation entre les pages
     def show_login():
-        login_view = LoginView(page, login_controller, show_signup, show_home)
+        login_view = LoginView(page, login_controller, show_signup, show_dashboard)
         page.clean()
         page.add(login_view.build())
         page.update()
@@ -24,10 +24,10 @@ def main(page: ft.Page):
         page.add(signup_view.build())
         page.update()
 
-    def show_home():
-        home_view = HomeView(page, home_controller)
+    def show_dashboard():
+        dashboard_view = DashboardView(page, dashboard_controller)  # Correction ici aussi
         page.clean()
-        page.add(home_view.build())
+        page.add(dashboard_view.build())
         page.update()
 
     # Afficher la page de connexion par défaut
